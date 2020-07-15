@@ -1,50 +1,40 @@
-		let bonePrise = 15.678;
-		let scullPrise = 123.965;
-		let kneePrise = 90.2345;
+		const bonePrise = 15.678;
+		const scullPrise = 123.965;
+		const kneePrise = 90.2345;
 
 		//1
-		let max = Math.max(bonePrise, scullPrise, kneePrise);
-		
+		const max = Math.max(bonePrise, scullPrise, kneePrise);
 
 		//2
-		let min = Math.min(bonePrise, scullPrise, kneePrise);
+		const min = Math.min(bonePrise, scullPrise, kneePrise);
 		
-
 		//3
-		let sum = bonePrise + scullPrise + kneePrise;
+		const sum = bonePrise + scullPrise + kneePrise;
 		
-
 		//4
-		let bonePriseFloor = Math.floor(bonePrise);
-		let scullPriseFloor = Math.floor(scullPrise);
-		let kneePriseFloor = Math.floor(kneePrise);
-		let sumFoor = (bonePriseFloor + scullPriseFloor + kneePriseFloor);
+		const bonePriseFloor = Math.floor(bonePrise);
+		const scullPriseFloor = Math.floor(scullPrise);
+		const kneePriseFloor = Math.floor(kneePrise);
+		const sumFoor = (bonePriseFloor + scullPriseFloor + kneePriseFloor);
 		
-
 		//5
-		let sumFloor100 = Math.ceil (sumFoor/100) * 100;
+		const sumFloor100 = Math.ceil (sumFoor/100) * 100;
 		
-
 		//6
-		let bool = (Math.floor(sum) % 2)==0;
+		const bool = (Math.floor(sum) % 2)==0;
 		
-
 		//7
-		let rest = 500 - sum;
+		const rest = 500 - sum;
 		
-
 		//8
-		let midPrise = (Math.floor(sum / 3 * 100) / 100 );
+		const midPrise = (Math.floor(sum / 3 * 100) / 100 );
 		
-
 		//9
-		let randDiscount = Math.random();
-		let cina = 500;
-		let restWithDisc = cina - (Math.floor(sum * randDiscount*100)/100);
-		
+		const randDiscount = Math.random();
+		const constPrice = 500;
+		const restWithDisc = constPrice - (Math.floor(sum * randDiscount*100)/100);
+		const profit = restWithDisc - constPrice / 2;
 
-		let profit = restWithDisc - cina / 2;
-		
 		const results = `<p>Максимальне число: ${max}</p>
                  <p>Мінімальне число: ${min}</p>
                  <p>Сума: ${sum}</p>
