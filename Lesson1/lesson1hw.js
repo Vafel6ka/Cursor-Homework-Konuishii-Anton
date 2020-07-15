@@ -4,44 +4,57 @@
 
 		//1
 		let max = Math.max(bonePrise, scullPrise, kneePrise);
-		document.writeln(`Максимальне число: ${max} /`);
+		
 
 		//2
 		let min = Math.min(bonePrise, scullPrise, kneePrise);
-		document.writeln(`Мінімальне число: ${min} /`);
+		
 
 		//3
 		let sum = bonePrise + scullPrise + kneePrise;
-		document.writeln(`Сума: ${sum} /`);
+		
 
 		//4
 		let bonePriseFloor = Math.floor(bonePrise);
 		let scullPriseFloor = Math.floor(scullPrise);
 		let kneePriseFloor = Math.floor(kneePrise);
 		let sumFoor = (bonePriseFloor + scullPriseFloor + kneePriseFloor);
-		document.writeln(`Сума цілих значень цін товарів: ${sumFoor} /`);
+		
 
 		//5
 		let sumFloor100 = Math.ceil (sumFoor/100) * 100;
-		document.writeln(`Заокруглена сума цілих значень цін товарів до сотень: ${sumFloor100} /`);
+		
 
 		//6
 		let bool = (Math.floor(sum) % 2)==0;
-		document.writeln(`Заокруглена сума всіх значень цін товарів парна чи ні: ${bool} /`);
+		
 
 		//7
 		let rest = 500 - sum;
-		document.writeln(`Сума решти: ${rest}`);
+		
 
 		//8
 		let midPrise = (Math.floor(sum / 3 * 100) / 100 );
-		document.writeln(`Заокруглене середнє значеня цін товарів: ${midPrise} /`);
+		
 
 		//9
 		let randDiscount = Math.random();
 		let cina = 500;
 		let restWithDisc = cina - (Math.floor(sum * randDiscount*100)/100);
-		document.writeln (`Залишок зі знижкою: ${restWithDisc.toFixed(2)} /`);
+		
 
 		let profit = restWithDisc - cina / 2;
-		document.writeln(`Чистий прибуток: ${profit.toFixed(2)} /`);
+		
+		const results = `<p>Максимальне число: ${max}</p>
+                 <p>Мінімальне число: ${min}</p>
+                 <p>Сума: ${sum}</p>
+                 <p>Сума цілих значень цін товарів: ${sumFoor}</p>                                       
+                 <p>Заокруглена сума цілих значень цін товарів до сотень: ${sumFloor100}</p>
+                 <p>Заокруглена сума всіх значень цін товарів парна чи ні: ${bool}</p>
+                 <p>Сума решти: ${rest}</p>
+                 <p>Заокруглене середнє значеня цін товарів: ${midPrise} </p>
+                 <p>Залишок зі знижкою: ${restWithDisc.toFixed(2)}</p>
+                 <p>Чистий прибуток: ${profit.toFixed(2)}</p>
+                 <p>Максимальне число: ${max}</p>`;
+
+		document.getElementById("res").innerHTML = results;
