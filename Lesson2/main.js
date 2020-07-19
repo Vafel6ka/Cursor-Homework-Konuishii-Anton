@@ -15,14 +15,14 @@ let number1 = 0;
     
   let numbersSum = 0;
   const isMissEven = confirm ('Are you skip even numbers? '); 
-  if (isMissEven) { //не сумуємо парні числа 
-    for (let k=(Math.min(number1,number2)); k<=Math.max(number1,number2); k++) {
-      if (!(k % 2)) continue; 
-      numbersSum +=k;
+  for (let k=(Math.min(number1,number2)); k<=Math.max(number1,number2); k++) {
+    if (isMissEven) {
+      if (k % 2) {
+        numbersSum +=k;
+      }
     } 
-  }   
-  else {
-    for (let k=(Math.min(number1,number2)); k<=Math.max(number1,number2); k++) {
+     
+    else {
     numbersSum +=k;
     }
   }
