@@ -3,7 +3,8 @@ let number1 = 0;
  
     do {
       number1 = +prompt ("Enter the first positive integer number");
-      if ((number1<0) || (number1 % 1)) number1 = false; 
+      if ((number1<0) || (number1 % 1)) number1 = false;
+       }
     while (!number1); 
     
     do {
@@ -25,5 +26,7 @@ let number1 = 0;
     }
   }
 
-  const result = `<p>Result:${numbersSum}</p>`;
+  const result = `<p>First number:${number1}</p>
+                  <p>Second number:${number2}</p>
+                  <p>Sum of numbers between first and second numbers:${numbersSum}</p>`;
   document.getElementById("res").innerHTML = result;

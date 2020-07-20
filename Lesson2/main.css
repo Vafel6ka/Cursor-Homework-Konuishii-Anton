@@ -1,9 +1,9 @@
 body {
-	background: grey;
-	color: white;			
+	background: lightgrey;
+	color: brown;			
 	}
 
 div {
-	font-size: 18px; 
+	font-size: 2vw; 
 	line-height: 1;
 	}
