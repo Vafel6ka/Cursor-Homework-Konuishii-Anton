@@ -11,11 +11,15 @@ return max;
 //ex2
 function calcNumbDegree(num, degree) {
   const baseNum = num;
-  
-  for (i = 1; i < degree; ++i) {
-    num *= baseNum;
-  }
-  
+  const baseDigree = degree;
+    if (degree <0) (degree=-degree);
+
+    for (i = 1; i < degree; ++i) {
+      num *= baseNum;
+    }
+
+    if (baseDigree <0) num = 1/num;
+
   return num;
 }
 
@@ -67,7 +71,7 @@ function createPass (num) {
   
 
 const result = `<p>Функція 1: ${getMaxDigit(87702)} </p>
-	              <p>Функція 2: ${calcNumbDegree(2, 8)} </p>
+	              <p>Функція 2: ${calcNumbDegree(9, -2)} </p>
 	              <p>Функція 3: ${getStyleString('aNTon')} </p>
 	              <p>Функція 4: ${calcSalaryOnHands(10500, 19)} </p>
 	              <p>Функція 5: ${getRandomNumber(1, 5)} </p>
