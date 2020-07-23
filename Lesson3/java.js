@@ -1,4 +1,3 @@
-//ex1 вводиться тілько стрінга, не знаю як зробити цифрою без методів масивів
 function getMaxDigit(str) {
 let max = 0;
 str = str.toString();
@@ -59,18 +58,19 @@ function countLeter(letter, word) {
 //ex8
 function createPass (num) {
   let pass = '';
-  for (i = 0; i < num; i++) {
-    pass = pass + Math.round(Math.random() * 10) ;
+  if (num == undefined) num = 8;
+  for (i = 1; i <= num; i++) {
+    pass += Math.floor(Math.random() * 10) ;
   }
   return pass
 }
   
 
 const result = `<p>Функція 1: ${getMaxDigit(87702)} </p>
-	               <p>Функція 2: ${calcNumbDegree(2, 8)} </p>
-	               <p>Функція 3: ${getStyleString('aNTon')} </p>
-	               <p>Функція 4: ${calcSalaryOnHands(10500, 19)} </p>
-	               <p>Функція 5: ${getRandomNumber(1, 5)} </p>
-	               <p>Функція 6: ${countLeter('o', 'Oviraptor')} </p>
-	               <p>Функція 8: ${createPass(10)} </p>`;
+	              <p>Функція 2: ${calcNumbDegree(2, 8)} </p>
+	              <p>Функція 3: ${getStyleString('aNTon')} </p>
+	              <p>Функція 4: ${calcSalaryOnHands(10500, 19)} </p>
+	              <p>Функція 5: ${getRandomNumber(1, 5)} </p>
+	              <p>Функція 6: ${countLeter('o', 'Oviraptor')} </p>
+	              <p>Функція 8: ${createPass(10)} </p>`;
 document.getElementById("res").innerHTML = result;
