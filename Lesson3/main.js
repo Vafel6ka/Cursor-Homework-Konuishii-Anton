@@ -11,23 +11,21 @@ return max;
 //ex2
 function calcNumbDegree(num, degree) {
   const baseNum = num;
-  const baseDigree = degree;
-    if (degree <0) (degree=-degree);
+  let baseDegree = degree;
+  
+  if (baseDegree === 0) return 1;
+  (baseDegree < 0) ? baseDegree = -baseDegree : 
+  baseDegree = baseDegree;
 
-    for (i = 1; i < degree; ++i) {
-      num *= baseNum;
-    }
+  for (i = 1; i < baseDegree; ++i) 
+    num *= baseNum;
 
-    if (baseDigree <0) num = 1/num;
-
-  return num;
+  return degree < 0 ? 1 / num: num;
 }
 
 //ex3
 function getStyleString(name) {
-  const newName = name[0].toUpperCase() + (name.slice(1)).toLowerCase();
-  
-return newName;
+  return name[0].toUpperCase() + (name.slice(1)).toLowerCase();
 }
 
 //ex4
@@ -40,9 +38,7 @@ return sum;
 
 //ex5
 function getRandomNumber(num1, num2) {
-  const rand = Math.round( Math.random() * (num2 - num1) ) + num1;
-  
-  return rand;
+  return Math.round( Math.random() * (num2 - num1) ) + num1;
 }
 
 //ex6
@@ -52,7 +48,7 @@ function countLeter(letter, word) {
   let count = 0;
   
   for (i = 0; i < (lowerWord.length); i++) {
-    if (lowerLetter == lowerWord[i])
+    if (lowerLetter === lowerWord[i])
     count +=1;
   }
   
@@ -62,7 +58,7 @@ function countLeter(letter, word) {
 //ex8
 function createPass (num) {
   let pass = '';
-  if (num == undefined) num = 8;
+  if (num === undefined) num = 8;
   for (i = 1; i <= num; i++) {
     pass += Math.floor(Math.random() * 10) ;
   }
@@ -76,5 +72,5 @@ const result = `<p>Функція 1: ${getMaxDigit(87702)} </p>
 	              <p>Функція 4: ${calcSalaryOnHands(10500, 19)} </p>
 	              <p>Функція 5: ${getRandomNumber(1, 5)} </p>
 	              <p>Функція 6: ${countLeter('o', 'Oviraptor')} </p>
-	              <p>Функція 8: ${createPass(10)} </p>`;
+	              <p>Функція 8: ${createPass()} </p>`;
 document.getElementById("res").innerHTML = result;
