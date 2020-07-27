@@ -58,7 +58,7 @@ function countLeter(letter, word) {
 //ex8
 function createPass (num) {
   let pass = '';
-  if (num === undefined) num = 8;
+  if (!num) num = 8;
   for (i = 1; i <= num; i++) {
     pass += Math.floor(Math.random() * 10) ;
   }
