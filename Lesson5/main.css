@@ -1,0 +1,16 @@
+body {
+	background-image: url(https://imgfilestorage.com/1/10/44/94384.jpg);
+
+}
+div {
+	width: 100%;
+	padding-top: 20vh;
+	padding-left: 35vw;
+}	
+
+p {
+	font-size: 20px;
+	text-align: left;
+	color: lightyellow;
+	font-family: cursive;
+}
