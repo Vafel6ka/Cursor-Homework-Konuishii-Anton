@@ -1,91 +1,75 @@
+const getFilter = (numbers, denominator) =>
+	numbers.filter(num => !(num % denominator));
+
 //1
 const getRandomArray = function (length, min, max) {
-
-function rand (min, max) {
-  return (Math.round( (Math.random() * (max - min)+2))); 
-}
-
-const tempArray = Array(length).fill('');
-return tempArray.map( (elem) => rand(min,max) );
+	let rand = (min, max) => Math.round((Math.random() * (max - min) + 2));
+	return (Array(length).fill('')).map((elem) => rand(min, max));
 }
 
 //3
 const numbers3 = [1, 45.6, 4.9, 3, 5, 7];
-function getAverage (numbers) {
-let getFilter = numbers.filter( num => !(num % 1));
+const getAverage = (numbers) =>
+	((getFilter(numbers, 1)).reduce((sum, v) => (sum += v), 0)) /
+	((getFilter(numbers, 1)).length);
 
-return (getFilter.reduce((sum, v) => (sum += v))) / (getFilter.length);
-}
 
 //4
-const numbers4 = [10, 45.6, 4.9, 3, 7, 7];
-function getMediana (numbers) {
-let getFilter = numbers.filter(num => !(num % 1));
-let getSort = getFilter.sort( (a, b) => (a - b) );
-let sum1 = getSort.reduce( (sum, v, i, arr) =>
-{
-  if ((i+1) <= ( (arr.length) / 2) ) sum += v;
-  return sum;
-})
+const numbers4 = [3, 45.6, 4.9, 1, 2, 4];
 
-let sum2 = ((getSort.reduce( (sum, v) => sum += v)) - sum1);
+function getMediana(numbers) {
 
-return ((sum1+sum2)/2);
+	const getSort = ((getFilter(numbers, 1)).sort((a, b) => (a - b)));
+
+	const sum1 = getSort.reduce((sum, v, i, arr) => {
+		return arr.length % 2 === 0 ? (arr[arr.length / 2] + arr[arr.length / 2 - 1]) / 2 : arr[Math.floor(arr.length / 2)]
+	}, 0);
+
+	return sum1;
 }
 
 //5
 const numbers5 = [10, 45.6, 4.9, 3, 7, 7, 8, 2, 4];
-function filterEvenNumber (numbers) {
-  return numbers.filter(num => !(num % 2));
-}
-  
+const filterEvenNumber = (numbers) => getFilter(numbers, 2);
+
+
 //6
-const numbers6 = [-10, 45.6, -4.9, 3, 7, -7, 8, -2 , -4, 6];
-function countPositiveNumbers (numbers) {
-return (numbers.filter( (value) => value > 0)).length;
-}
+const numbers6 = [-10, 45.6, -4.9, 3, 7, -7, 8, -2, -4, 6];
+const countPositiveNumbers = (numbers) =>
+	(numbers.filter((value) => value > 0)).length;
+
 
 //7
 const numbers7 = [-10, 45.6, -4.9, 5, 7, -20, 8, -2, -4];
-function getDividedByFive (numbers) {
-return numbers.filter((value) => !(value % 5));
-}
+const getDividedByFive = (numbers) => getFilter(numbers, 5);
 
 //8 
 const baseStr = "Where this fucking stegosaurus?! Shit!";
-const badWords = ["fuck", "shit"];
+const badWords = ["fuck", "Shit"];
 
-function replaceBadWord (baseStr, badWords) {
-const str = baseStr.toLowerCase();
-const wordsArr = str.split(' ');
-const getTempGoodSentence = (wordsArr.map((word) => {
-  for (badWord of badWords) {
-    if (!(word.indexOf(badWord))) {
-      word = "****" + word.slice(4);
-    }
-  }
-  return word;
-})).join(' ');
-const getGoodSentence = (getTempGoodSentence[0].toUpperCase() + getTempGoodSentence.slice(1));
-return getGoodSentence;
+function replaceBadWord(baseStr, badWords) {
+	const str = baseStr.toLowerCase();
+	const wordsArr = str.split(' ');
+	const getTempGoodSentence = (wordsArr.map((word) => {
+		for (badWord of badWords) {
+			if (!(word.indexOf(badWord.toLowerCase()))) {
+				word = "****" + word.slice(4);
+			}
+		}
+		return word;
+	})).join(' ');
+	return (getTempGoodSentence[0].toUpperCase() + getTempGoodSentence.slice(1));
 };
- 
+
 //9
-const str9 = ' Arch  osaurs';
-function getDivideByTree (str) {
-  
-const fixedStr = str.replace(/ +/g, '').trim().toLocaleLowerCase();
-let onlyLetters = fixedStr.split('');
+const str9 = 'ankilosaur';
 
-let getLowStrDivideByTree = onlyLetters.reduce ( (sentence, letter, index) => {
-  sentence += letter;
-
-if ( !( (index+1) % 3) ) sentence += " ";
-return sentence;
-});
-
-return (getLowStrDivideByTree[0].toUpperCase() + 
-  getLowStrDivideByTree.slice(1));
+function getDivideByTree(word) {
+	let arr = [];
+	for (let i = 0; i < word.length; i += 3) {
+		arr.push(word.slice(i, i + 3));
+	}
+	return arr;
 }
 
 const result = `<p>Function 1: ${ getRandomArray(10, 2, 7) } </p>
