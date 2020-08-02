@@ -16,7 +16,6 @@ const getAverage = (numbers) =>
 
 //4
 const numbers4 = [3, 45.6, 4.9, 1, 2, 4];
-
 function getMediana(numbers) {
 
 	const getSort = ((getFilter(numbers, 1)).sort((a, b) => (a - b)));
@@ -46,7 +45,6 @@ const getDividedByFive = (numbers) => getFilter(numbers, 5);
 //8 
 const baseStr = "Where this fucking stegosaurus?! Shit!";
 const badWords = ["fuck", "Shit"];
-
 function replaceBadWord(baseStr, badWords) {
 	const str = baseStr.toLowerCase();
 	const wordsArr = str.split(' ');
@@ -63,7 +61,6 @@ function replaceBadWord(baseStr, badWords) {
 
 //9
 const str9 = 'ankilosaur';
-
 function getDivideByTree(word) {
 	let arr = [];
 	for (let i = 0; i < word.length; i += 3) {
