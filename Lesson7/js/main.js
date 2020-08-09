@@ -31,7 +31,7 @@ function getMySalary(country) {
     obj['profit'] = profit;
     return console.log(obj);
   };
-  return setInterval(getObject, 1000);
+  return setInterval(getObject, 10000);
 }
 
 console.log('getMyTaxes: ', getMyTaxes.call(ukraine));
