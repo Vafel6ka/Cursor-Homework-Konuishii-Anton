@@ -4,7 +4,7 @@ const litva = { tax: 0.15, middleSalary: 1509, vacancies: 1114 };
 
 //1
 function getMyTaxes(country) {
-  let yourSalary = prompt('Enter your salary');
+  const yourSalary = prompt('Enter your salary');
   return Math.round(this.tax * yourSalary * 100) / 100;
 }
 
@@ -21,7 +21,6 @@ function getTotalTaxes(country) {
 //4
 
 function getMySalary(country) {
-  const getObject = () => {
     const obj = {};
     const salary = Math.round((Math.random() * 1000 + Math.random() * 500) * 100) / 100;
     const taxes = this.tax;
@@ -29,12 +28,11 @@ function getMySalary(country) {
     obj.salary = salary;
     obj.taxes = taxes;
     obj.profit = profit;
-    return console.log(obj);
-  };
-  return setInterval(getObject, 10000);
+    return obj;
 }
 
 console.log('getMyTaxes: ', getMyTaxes.call(ukraine));
 console.log('getMiddleTaxes: ', getMiddleTaxes.call(ukraine));
 console.log('getTotalTaxes: ', getTotalTaxes.call(ukraine));
-getMySalary.call(ukraine);
+console.log(getMySalary.call(ukraine));
+let timer = setInterval(() => console.log(getMySalary.call(ukraine)), 10000)
