@@ -23,12 +23,12 @@ function getTotalTaxes(country) {
 function getMySalary(country) {
   const getObject = () => {
     const obj = {};
-    const  salary = Math.round((Math.random() * 1000 + Math.random() * 500) * 100) / 100;
+    const salary = Math.round((Math.random() * 1000 + Math.random() * 500) * 100) / 100;
     const taxes = this.tax;
     const profit = Math.round((salary - this.tax * salary) * 100) / 100;
-    obj['salary'] = salary;
-    obj['taxes'] = taxes;
-    obj['profit'] = profit;
+    obj.salary = salary;
+    obj.taxes = taxes;
+    obj.profit = profit;
     return console.log(obj);
   };
   return setInterval(getObject, 10000);
