@@ -44,12 +44,18 @@ class BudgetStudent extends Student {
 constructor(course, university, fullName, scholarship) {
   super (course, university, fullName);
   this.scholarship = scholarship;
-}
-  getScholarship () {
-    return setInterval(console.log("Ви отримали " + this.scholarship + " грн стипендії"), 100);
-  }
+  setInterval(() => this.getScholarship (), 30000);
 }
 
+
+  getScholarship () {
+    if ((this.getAverageMark < 5) && (this.isDismiss = false)) {
+      return null;
+    } else {
+    return console.log("Ви отримали " + this.scholarship + " грн стипендії");
+    }
+}
+}
 const student1 = new Student("Alabama", 3, "Anton Koniushii");
 student1.getInfo();
 console.log(student1.marks);
@@ -62,4 +68,6 @@ console.log(student1.marks);
 
 const student2 = new BudgetStudent("Alabama", 2, "Ava Gardner", 1400);
 student2.getInfo();
+
+console.log(student2.getAverageMark());
 student2.getScholarship();
