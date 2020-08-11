@@ -40,6 +40,16 @@ class Student {
    }
 }
 
+class BudgetStudent extends Student {
+constructor(course, university, fullName, scholarship) {
+  super (course, university, fullName);
+  this.scholarship = scholarship;
+}
+  getScholarship () {
+    return setInterval(console.log("Ви отримали " + this.scholarship + " грн стипендії"), 100);
+  }
+}
+
 const student1 = new Student("Alabama", 3, "Anton Koniushii");
 student1.getInfo();
 console.log(student1.marks);
@@ -49,3 +59,7 @@ student1.dismiss();
 console.log(student1.marks);
 student1.recover();
 console.log(student1.marks);
+
+const student2 = new BudgetStudent("Alabama", 2, "Ava Gardner", 1400);
+student2.getInfo();
+student2.getScholarship();
