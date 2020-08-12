@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+
+<body>
+<style>
+* {
+box-sizing: border-box;
+}
+.square {
+  padding: 5px;
+  border: 5px solid #2743A1;
+  /*background-color: #dff0d8;*/
+  width: 50px;
+  height: 50px;
+}
+
+.row {
+ 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width:250px;
+  height: auto;
+}
+</style>
+ 
+<button id="first"onclick="{delSquares ();stop();
+generateBlock(); this.disabled = true;
+document.querySelector('#second').disabled = false;document.querySelector('#clear').disabled = false}"> generateBlock </button>
+
+<button disabled id = "second" onclick="{start();generateBlocksInterval(); this.disabled = true;document.querySelector('#first').disabled = false;}"> generateBlocksInterval </button>
+
+<button id = "stop" onclick = "stop()"> stop</button>
+<button disabled id="clear" onclick = "delSquares()"> clear</button>
+
+  
+<script>
+function generateBlock () {
+
+function getRow () {
+  const divRow = document.createElement('div');
+divRow.className = "row";
+return document.body.append(divRow);
+}
+
+function getSquares () {
+
+function randColor() {
+var r = Math.floor(Math.random() * (256)),
+g = Math.floor(Math.random() * (256)),
+b = Math.floor(Math.random() * (256));
+return '#' + r.toString(16) + g.toString(16) + b.toString(16);
+}
+
+function getSquare (color) {
+  const square = document.createElement('div');
+  square.className = "square";
+  square.style.backgroundColor = randColor();
+ return document.querySelector('.row').append(square);
+}
+  
+  for (var i = 0; i < 25; i++) {
+        getSquare();
+    }
+return;
+}
+getRow();
+getSquares();
+return;
+}
+
+const generateBlocksInterval = () => setInterval(() => {if (work) {
+     delSquares ();
+        generateBlock();
+        }
+    return;
+}, 3000);
+
+let work = 1;
+
+function stop () {
+  work = 0;
+}
+
+function start () {
+  work = 1;
+}
+
+function delSquares () {
+  if (document.querySelector('.row'))  document.querySelector('.row').remove('div');
+}
+
+
+</script>
+</body>
+
+</html>
