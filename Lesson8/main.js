@@ -55,7 +55,7 @@ class BudgetStudent extends Student {
     }
   }
 }
-const student1 = new Student('Alabama', 3, 'Anton Koniushii');
+const student1 = new Student(3, 'Alabama', 'Anton Koniushii');
 student1.getInfo();
 console.log(student1.marks);
 student1.marks = 4;
@@ -65,7 +65,7 @@ console.log(student1.marks);
 student1.recover();
 console.log(student1.marks);
 
-const student2 = new BudgetStudent('Alabama', 2, 'Ava Gardner', 1400);
+const student2 = new BudgetStudent( 2, 'Alabama', 'Ava Gardner', 1400);
 student2.getInfo();
 console.log(student2.getAverageMark());
 student2.getScholarship();
