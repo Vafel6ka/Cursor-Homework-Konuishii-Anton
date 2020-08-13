@@ -1,0 +1,48 @@
+* {
+box-sizing: border-box;
+}
+
+body{
+  background : #4cbbd6;
+}
+
+.button {
+  padding: 15px 25px;
+  font-size: 15px;
+  text-align: center;
+  outline: none;
+  color: black;
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  border: 2px solid black;
+  box-shadow: 10px 5px 5px #3C93D5;
+  transition: .3s;
+}
+
+#second {
+   background-color: grey;
+}
+  
+.square {
+  padding: 5px;
+  border: 5px solid black;
+  width: 50px;
+  height: 50px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width:250px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
