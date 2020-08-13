@@ -12,6 +12,21 @@
 * {
 box-sizing: border-box;
 }
+.button {
+  padding: 15px 25px;
+  font-size: 15px;
+  text-align: center;
+  outline: none;
+  color: #fff;
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+}
+
+#second {
+   background-color: grey;
+}
+  
 .square {
   padding: 5px;
   border: 5px solid #2743A1;
@@ -21,7 +36,6 @@ box-sizing: border-box;
 }
 
 .row {
- 
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -30,17 +44,21 @@ box-sizing: border-box;
 }
 </style>
  
-<button id="first"onclick="{delSquares ();stop();
-generateBlock(); this.disabled = true;
-document.querySelector('#second').disabled = false;document.querySelector('#clear').disabled = false}"> generateBlock </button>
+<button class = button id="first" onclick = "firstButtonFunctions()"> generateBlock </button>
 
-<button disabled id = "second" onclick="{start();generateBlocksInterval(); this.disabled = true;document.querySelector('#first').disabled = false;}"> generateBlocksInterval </button>
+<button class = button id = "second" onclick = "secondButtonFunctions()"> generateBlocksInterval </button>
 
-<button id = "stop" onclick = "stop()"> stop</button>
-<button disabled id="clear" onclick = "delSquares()"> clear</button>
-
+<button class = button id = "stop" onclick = "thirdButtonFunctions()">stop/reset</button>
   
 <script>
+
+function randColor() {
+var r = Math.floor(Math.random() * (256)),
+g = Math.floor(Math.random() * (256)),
+b = Math.floor(Math.random() * (256));
+return '#' + r.toString(16) + g.toString(16) + b.toString(16);
+}
+
 function generateBlock () {
 
 function getRow () {
@@ -50,15 +68,8 @@ return document.body.append(divRow);
 }
 
 function getSquares () {
-
-function randColor() {
-var r = Math.floor(Math.random() * (256)),
-g = Math.floor(Math.random() * (256)),
-b = Math.floor(Math.random() * (256));
-return '#' + r.toString(16) + g.toString(16) + b.toString(16);
-}
-
-function getSquare (color) {
+  
+function getSquare () {
   const square = document.createElement('div');
   square.className = "square";
   square.style.backgroundColor = randColor();
@@ -75,27 +86,50 @@ getSquares();
 return;
 }
 
-const generateBlocksInterval = () => setInterval(() => {if (work) {
-     delSquares ();
-        generateBlock();
-        }
-    return;
-}, 3000);
+const generateBlocksInterval = () => 
+  interv = setInterval(() => changeColor(), 300);
 
-let work = 1;
+let interv=0;
 
 function stop () {
-  work = 0;
-}
-
-function start () {
-  work = 1;
+  clearInterval(interv);
 }
 
 function delSquares () {
   if (document.querySelector('.row'))  document.querySelector('.row').remove('div');
 }
 
+function changeColor() {
+  document.querySelectorAll('.square').forEach((item) => item.style.backgroundColor= randColor());
+}
+
+function firstButtonFunctions() {
+  delSquares ();
+  stop();generateBlock();
+  document.querySelector('#second').disabled = false; 
+    document.querySelector('#first').disabled = true;
+    document.querySelector('#first').style.backgroundColor = 'grey';
+     document.querySelector('#second').style.backgroundColor = 'green';
+ return;
+
+}
+
+function secondButtonFunctions() {
+  generateBlocksInterval();
+  document.querySelector('#second').disabled = true;
+  document.querySelector('#second').style.backgroundColor = 'grey'
+  return;
+}
+
+function thirdButtonFunctions() {
+  stop();
+  document.querySelector('#second'). disabled = false;
+  document.querySelector('#second').style.backgroundColor = 'green';
+    
+  document.querySelector('#first'). disabled = false;
+  document.querySelector('#first').style.backgroundColor = 'green';
+  return;
+}
 
 </script>
 </body>
