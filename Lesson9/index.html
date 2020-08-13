@@ -12,6 +12,10 @@
 * {
 box-sizing: border-box;
 }
+body{
+  background : #4cbbd6;
+}
+
 .button {
   padding: 15px 25px;
   font-size: 15px;
@@ -21,6 +25,7 @@ box-sizing: border-box;
   background-color: green;
   border: none;
   border-radius: 5px;
+  margin: 10px;
 }
 
 #second {
@@ -29,8 +34,7 @@ box-sizing: border-box;
   
 .square {
   padding: 5px;
-  border: 5px solid #2743A1;
-  /*background-color: #dff0d8;*/
+  border: 5px solid black;
   width: 50px;
   height: 50px;
 }
@@ -41,15 +45,22 @@ box-sizing: border-box;
   flex-wrap: wrap;
   width:250px;
   height: auto;
+  margin: 0 auto;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
 }
 </style>
- 
+<div class="wrap">
 <button class = button id="first" onclick = "firstButtonFunctions()"> generateBlock </button>
 
 <button class = button id = "second" onclick = "secondButtonFunctions()"> generateBlocksInterval </button>
 
 <button class = button id = "stop" onclick = "thirdButtonFunctions()">stop/reset</button>
-  
+</div> 
 <script>
 
 function randColor() {
@@ -103,31 +114,34 @@ function changeColor() {
   document.querySelectorAll('.square').forEach((item) => item.style.backgroundColor= randColor());
 }
 
+const second = document.querySelector('#second');
+const first = document.querySelector('#first')
+
 function firstButtonFunctions() {
   delSquares ();
   stop();generateBlock();
-  document.querySelector('#second').disabled = false; 
-    document.querySelector('#first').disabled = true;
-    document.querySelector('#first').style.backgroundColor = 'grey';
-     document.querySelector('#second').style.backgroundColor = 'green';
+  second.disabled = false; 
+    first.disabled = true;
+    first.style.backgroundColor = 'grey';
+     second.style.backgroundColor = 'green';
  return;
 
 }
 
 function secondButtonFunctions() {
   generateBlocksInterval();
-  document.querySelector('#second').disabled = true;
-  document.querySelector('#second').style.backgroundColor = 'grey'
+  second.disabled = true;
+  second.style.backgroundColor = 'grey'
   return;
 }
 
 function thirdButtonFunctions() {
   stop();
-  document.querySelector('#second'). disabled = false;
-  document.querySelector('#second').style.backgroundColor = 'green';
+  second. disabled = false;
+  second.style.backgroundColor = 'green';
     
-  document.querySelector('#first'). disabled = false;
-  document.querySelector('#first').style.backgroundColor = 'green';
+  first. disabled = false;
+  first. style.backgroundColor = 'green';
   return;
 }
 
