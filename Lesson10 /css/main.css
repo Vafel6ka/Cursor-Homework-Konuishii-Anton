@@ -1,0 +1,25 @@
+.container {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  background: lightblue;
+  width: 350px;
+  height: auto;
+  background: lightcyan
+}
+
+.btn {
+  background: rgba(12, 12, 78, 0.3);
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+}
+
+div > p {
+  text-align: center;
+  line-height: 0px;
+}
