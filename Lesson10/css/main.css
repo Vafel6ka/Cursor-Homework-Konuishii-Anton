@@ -9,11 +9,11 @@
   background: lightblue;
   width: 350px;
   height: auto;
-  background: lightcyan
+  background: lightcyan;
 }
 
 .btn {
-  background: rgba(12, 12, 78, 0.3);
+  background: #64348a;
   height: 30px;
   width: 30px;
   margin: 5px;
