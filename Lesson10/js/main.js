@@ -1,22 +1,57 @@
-// const button = document.querySelector('.colorBtn1');
-// button.onclick = function () {
-// 	button.style.backgroundColor === 'red'
-// 		? (button.style.backgroundColor = 'green')
-// 		: (button.style.backgroundColor = 'red');
-// };
+// ////////////create row and blocks
+// function generateBlock(numSqv) {
+//   function getRow() {
+//     const divRow = document.createElement('div');
+//     divRow.className = 'row';
+//     return document.body.append(divRow);
+//   }
 
-//зробити два масива. в першому ссилки на музику в кількості рівній к-ті кнопок, а в другому масиві - все елементи бтн. потім почергово forEach присвоїти кожному бтн при кліку свою музику. все.
+//   function getSquares() {
+//     function getSquare() {
+//       const square = document.createElement('div');
+//       square.className = 'btn';
+//       square.style.backgroundColor = '#64348a';
+//       return document.querySelector('.row').append(btn);
+//     }
 
+//     for (var i = 0; i < numSqv; i++) {
+//       getSquare();
+//     }
+//     return;
+//   }
+//   getRow();
+//   getSquares();
+//   return;
+// /////////////////////////////////
 const arrBtns = [...document.querySelectorAll('.btn')];
 console.log(arrBtns);
 
-const arrColor = ['red', 'green', 'yellow', 'blue', 'black', 'cyan', 'grey', 'lightblue'];
+const arrColor = ['#FBEFEF', '#F8E0E0', '#F6CECE', '#F5A9A9', '#F78181', '#FA5858', '#FE2E2E', '#FF0000'];
 console.log(arrColor);
 
 arrBtns.forEach((btn, ind) => {
 	btn.onclick = function () {
-		btn.style.backgroundColor === arrColor[ind]
-			? (btn.style.backgroundColor = '#64348a')
-			: (btn.style.backgroundColor = arrColor[ind]);
+		console.log(btn);
 	};
+});
+
+arrBtns.forEach((btn, ind) => {
+	btn.addEventListener('mousedown', function () {
+		btn.style.backgroundColor = arrColor[ind];
+	});
+});
+
+arrBtns.forEach((btn, ind) => {
+	btn.addEventListener('mouseup', function () {
+		btn.style.backgroundColor = '#64348a';
+	});
+});
+
+arrBtns.forEach((btn, ind) => {
+	btn.addEventListener('mouseup', function () {
+		let x = document.createElement('AUDIO');
+		x.setAttribute('src', `sounds/${ind}.mp3`);
+		x.autoplay = 1;
+		document.body.appendChild(x);
+	});
 });

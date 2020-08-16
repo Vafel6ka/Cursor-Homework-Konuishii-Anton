@@ -2,7 +2,7 @@ let interv;
 const firstBtn = document.querySelector('#firstBtn');
 const secondBtn = document.querySelector('#secondBtn');
 
-function generateBlock() {
+function generateBlock(numSqv) {
   function getRow() {
     const divRow = document.createElement('div');
     divRow.className = 'row';
@@ -17,7 +17,7 @@ function generateBlock() {
       return document.querySelector('.row').append(square);
     }
 
-    for (var i = 0; i < 25; i++) {
+    for (var i = 0; i < numSqv; i++) {
       getSquare();
     }
     return;
@@ -41,7 +41,7 @@ function stop() {
 }
 
 function delSquares() {
-  if (document.querySelector('.row')) document.querySelector('.row').remove('div');
+  document.querySelector('.row') && document.querySelector('.row').remove('div');
 }
 
 function changeColor() {
@@ -51,7 +51,7 @@ function changeColor() {
 function firstButtonFunctions() {
   delSquares();
   stop();
-  generateBlock();
+  generateBlock(25);
   secondBtn.disabled = false;
   firstBtn.disabled = true;
   firstBtn.style.backgroundColor = 'grey';

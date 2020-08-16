@@ -1,25 +1,33 @@
+body {
+  background-image: url('../img/rex.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
 .container {
   position: absolute;
-  top: 20%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  background: lightblue;
-  width: 350px;
+  /*background: lightblue;*/
+  width: 80%;
   height: auto;
-  background: lightcyan;
 }
 
 .btn {
   background: #64348a;
-  height: 30px;
-  width: 30px;
-  margin: 5px;
+  opacity: 0.6;
+  height: 80px;
+  width: 110px;
+  margin: 25px;
+  border: 2px solid grey;
 }
 
 div > p {
   text-align: center;
-  line-height: 0px;
+  line-height: 40px;
+  font-size: 20px;
 }
