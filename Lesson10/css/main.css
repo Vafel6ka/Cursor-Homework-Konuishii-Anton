@@ -1,12 +1,14 @@
-body{
+body {
   border: 4px solid black;
 }
 
-.container{
+.container {
   background-image: url('../img/rex.jpg');
   width: auto;
-  height:100vh;
-  background-position:center;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .row {
@@ -29,8 +31,8 @@ body{
   width: 7vw;
   margin: 1vw;
   border: 2px solid grey;
-  min-width:25px;
-  min-height:25px;
+  min-width: 25px;
+  min-height: 25px;
   max-width: 70px;
   max-height: 70px;
 }

@@ -8,35 +8,33 @@ arrBtns.forEach((btn, ind) => {
 	});
 });
 
-
 arrBtns.forEach((btn, ind, arr) => {
 	btn.addEventListener('mouseup', function () {
 		let sound = document.createElement('audio');
-		  sound.setAttribute('src', `sounds/${ind}.mp3`);
-		  sound.autoplay = true;
-		  sound.load;
-		  sound.play();
-	  btn.style.backgroundColor = '#64348a';
+		sound.setAttribute('src', `sounds/${ind}.mp3`);
+		sound.autoplay = true;
+		sound.load;
+		sound.play();
+		btn.style.backgroundColor = '#64348a';
+		btn.style.borderColor = 'yellow';
+		setTimeout(() => (btn.style.borderColor = 'grey'), 2000);
 	});
 });
 
 arrBtns.forEach((btn, ind) => {
-  btn.addEventListener('touchstart', function() {
-    btn.style.backgroundColor = arrColor[ind];
-  });
+	btn.addEventListener('touchstart', function () {
+		btn.style.backgroundColor = arrColor[ind];
+	});
 });
-
 
 arrBtns.forEach((btn, ind, arr) => {
-	btn.addEventListener('touchend', function() {
-	  let sound = document.createElement('audio');
-	  sound.setAttribute('src', `sounds/${ind}.mp3`);
-	  sound.autoplay = true;
-	  sound.load;
-	  sound.play();
-	  btn.style.borderColor = "yellow";
-	 setTimeout(()=>btn.style.borderColor = 'grey', 2000);
-	  });
-	  
+	btn.addEventListener('touchend', function () {
+		let sound = document.createElement('audio');
+		sound.setAttribute('src', `sounds/${ind}.mp3`);
+		sound.autoplay = true;
+		sound.load;
+		sound.play();
+		btn.style.borderColor = 'yellow';
+		setTimeout(() => (btn.style.borderColor = 'grey'), 2000);
+	});
 });
-
