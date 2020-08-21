@@ -1,37 +1,17 @@
-function getRandomChinese(length){
-  let count = 0;
-  const str=[];
- while (count < length) { 
-   
-  let timeStr = Number(Date.now().toString().slice(-5));
- // console.log(timeStr);
- // console.log(parseInt('9fff', 16))
- if (timeStr < 19967) timeStr +=20000
- //console.log(String.fromCharCode(timeStr));
-  
-  str[count]= String.fromCharCode(timeStr);
-  count++;
- }  
-  return new Promise(function(resolve) {
-     
-         str.forEach((v, i)=>setTimeout(() => resolve(), 1000))
-         return console.log(str);
-       }
-       
-       // эта функция выполнится автоматически, при вызове new Promise
-  
-       // через 1 секунду сигнализировать, что задача выполнена с результатом "done"
-     )
+function getRandomChinese(length) {
+  return new Promise(function (resolve) {
+    setTimeout(() => {
+      let count = 0;
+      const str = [];
+      let timeStr = Date.now().toString().slice(-5);
+      while (count < length) {
+        timeStr += 50;
+        str[count] = String.fromCharCode(timeStr);
+        ++count;
+      }
+      resolve(str.join(''));
+    }, length * 50);
+  });
 }
-   
-getRandomChinese(10);
 
-let promise = new Promise(function(resolve, reject) {
-  setTimeout(() => resolve("done!"), 1000);
-});
-
-// resolve запустит первую функцию, переданную в .then
-promise.then(
-  result => alert(result), // выведет "done!" через одну секунду
-  error => alert(error) // не будет запущена
-);
+getRandomChinese(4).then((result) => console.log(result));
