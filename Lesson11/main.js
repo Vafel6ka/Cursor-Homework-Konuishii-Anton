@@ -1,11 +1,12 @@
+const step = 50;
 function getRandomChinese(length) {
-  return new Promise(function (resolve) {
+  return new Promise(function(resolve) {
     setTimeout(() => {
       let count = 0;
       const str = [];
       let timeStr = Date.now().toString().slice(-5);
       while (count < length) {
-        timeStr += 50;
+        timeStr += step;;
         str[count] = String.fromCharCode(timeStr);
         ++count;
       }
