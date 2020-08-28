@@ -3,78 +3,90 @@ const characters = [];
 const peoples = [];
 const planets = [];
 
-function getPlanetsName() {
-  axios.get(BASE + 'planets').then((res) => {
-    res.data.results.forEach((data) => {
-      const singlePlanet = { ...data};
-      planets.push(singlePlanet);
-      showAllResults(planets)
+function getAllPlanetsInfo(page) {
+  axios
+    .get(BASE + `planets`, {
+      params: {
+        page: page
+      }
+    })
+    .then((res) => {
+      res.data.results.forEach((data) => {
+        const singlePlanet = { ...data };
+        planets.push(singlePlanet);
+        showAllResults(planets);
+      });
     });
-  });
+  clear(planets);
 }
-
-//getPlanetsName();
-
-function getP() {
-  axios.get(BASE + 'planets').then((res) => console.log(res))
-}
-getP();
 
 function getChars2() {
-  axios.get(BASE + 'films/2')
-  .then((res) => {
+  axios.get(BASE + 'films/2').then((res) => {
     res.data.characters.forEach((data, ind) => {
-      axios.get(data)
-      .then((character) => {
+      axios.get(data).then((character) => {
         const singlePeople = { ...character.data };
         characters.push(singlePeople);
-      showResults(characters);
-      })});
+        showResults(characters);
+      });
     });
-}
-
-function getPeople2() {
-  axios.get(BASE + "people/2").then((res) => {
-    const singlePeople = { ...res.data };
-    peoples.push(singlePeople);
-    showResults(peoples);
   });
+  clear(characters);
 }
 
-//function showResults(data) {
- // console.log(data);
-//}
+function clear(arr) {
+  return arr.splice(0, arr.length);
+}
 
 function showResults(users = {}) {
+  prev.disabled = true;
+  next.disabled = true;
   const container = document.querySelector('.wrapper');
   container.innerHTML = '';
 
-  users.forEach(user => {
+  users.forEach((user) => {
     const userElement = document.createElement('div');
-    userElement.className = 'user';
+    userElement.className = 'characters';
     userElement.innerHTML = `
-      <h3>${user.name}</h3>
-      <h4>${user.birth_year}</h4>
-      <h4>${user.gender}</h4>
+      <h3>Name : ${user.name}</h3>
+      <h4>Birth day : ${user.birth_year}</h4>
+      <h4>Gender : ${user.gender}</h4>
     `;
     container.append(userElement);
   });
 }
 
 function showAllResults(users = {}) {
+  prev.disabled = false;
+  next.disabled = false;
   const container = document.querySelector('.wrapper');
   container.innerHTML = '';
 
-  users.forEach(user => {
+  users.forEach((user) => {
     const userElement = document.createElement('div');
-    userElement.className = 'user';
+    userElement.className = 'planets';
     for (let key in user) {
       const userElement2 = document.createElement('div');
-    userElement2.innerHTML = `
+      userElement2.innerHTML = `
       <h3>${key} : ${user[key]}</h3>
     `;
-    
-    container.append(userElement2);}
-    container.append(userElement)
+
+      userElement.append(userElement2);
+    }
+    container.append(userElement);
   });
 }
+
+function paginationInit() {
+  let currentPage = 1;
+
+  document.querySelector('#prev').addEventListener('click', () => {
+    if (currentPage < 1) return;
+    getAllPlanetsInfo(currentPage--);
+  });
+  document.querySelector('#next').addEventListener('click', () => {
+    getAllPlanetsInfo(currentPage++);
+    if (currentPage > 6) currentPage = 1;
+  });
+}
+
+paginationInit();

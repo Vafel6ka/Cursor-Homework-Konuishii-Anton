@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="main.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-   <link href="main.css" rel="stylesheet" />
-</head>
+  <body>
+    <div class="cont">
+      <div>
+        <h1>Star Wars Films Info</h1>
+      </div>
 
-<body>
-  <button onclick="getPeople2()"> getPeople</button>
-  
-   <button onclick="getChars2()">getChar</button>
-   
-     <button onclick="getPlanetsName()">getPlanets</button>
-   
-   
-   
-   <div class="wrapper"></div>
+      <div>
+        <button id="char" onclick="getChars2()">getChar</button>
+      </div>
 
-  
-  
-  <script src="main.js"></script>
-</body>
+      <div>
+        <button id="planets" onclick="getAllPlanetsInfo()">Planets info</button>
+      </div>
 
+      <div class="wrapper"></div>
+
+      <div>
+        <button id="prev" disabled>prev</button>
+        <button id="next" disabled>next</button>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
 </html>

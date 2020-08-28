@@ -1,5 +1,44 @@
-.user {
-  border: 2px solid red;
-  margin: 2px;
-  padding: 10px;
+* {
+	font-family: sans-serif;
 }
+body {
+	background-color: #bcb8b8;
+	width: 99%;
+	height: 100%;
+}
+
+.cont {
+	text-align: center;
+	margin: 5px;
+}
+
+.characters {
+	width: 30vw;
+	margin: 5px auto;
+	border: 2px solid red;
+	padding: 10px;
+	box-shadow: 10px 5px 5px #bcb8b8;
+	background-color: green;
+}
+
+.planets {
+	border: 2px solid red;
+	margin: 10px;
+	padding: 10px;
+	box-shadow: 10px 5px 5px #bcb8b8;
+	background-color: green;
+}
+
+#prev, #next, #char, #planets {
+	margin: 5px auto;
+	margin-top: 2%
+    background-color: #bcb8b8;
+    border: 2px solid gold;
+    border-radius: 10px;
+    color: black;
+}
+#prev {
+    margin-right: 10%;
+}
+#next {
+    margin-left: 10%;
