@@ -38,8 +38,7 @@ function clear(arr) {
 }
 
 function showResults(users = {}) {
-  prev.disabled = true;
-  next.disabled = true;
+  hideBtn();
   const container = document.querySelector('.wrapper');
   container.innerHTML = '';
 
@@ -56,8 +55,7 @@ function showResults(users = {}) {
 }
 
 function showAllResults(users = {}) {
-  prev.disabled = false;
-  next.disabled = false;
+  showBtn();
   const container = document.querySelector('.wrapper');
   container.innerHTML = '';
 
@@ -65,6 +63,7 @@ function showAllResults(users = {}) {
     const userElement = document.createElement('div');
     userElement.className = 'planets';
     for (let key in user) {
+      if (key === 'residents' || key === 'films' || key === 'url') continue;
       const userElement2 = document.createElement('div');
       userElement2.innerHTML = `
       <h3>${key} : ${user[key]}</h3>
@@ -87,6 +86,16 @@ function paginationInit() {
     getAllPlanetsInfo(currentPage++);
     if (currentPage > 6) currentPage = 1;
   });
+}
+
+function hideBtn() {
+  document.getElementById('prev').style.display = 'none';
+  document.getElementById('next').style.display = 'none';
+}
+
+function showBtn() {
+  document.getElementById('prev').style.display = 'inline-block';
+  document.getElementById('next').style.display = 'inline-block';
 }
 
 paginationInit();
