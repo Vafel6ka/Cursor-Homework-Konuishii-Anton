@@ -27,6 +27,7 @@ body {
 	padding: 10px;
 	box-shadow: 0px 0px 15px #bcb8b8;
 	border-radius: 20px;
+	min-width: 300px;
 }
 
 .planets {
@@ -36,7 +37,9 @@ body {
 	box-shadow: 0px 0px 15px #bcb8b8;
 	border-radius: 20px;
 	width: 30vw;
+	min-width: 300px;
 	margin: 5px auto;
+	
 }
 
 #prev, #next, #char, #planets {
@@ -47,6 +50,10 @@ body {
     border-radius: 10px;
     color: black;
 }
+#prev, #next, #char, #planets:focus {
+  outline: none;
+}
+
 #prev {
     margin-right: 5vw;
     display: none
