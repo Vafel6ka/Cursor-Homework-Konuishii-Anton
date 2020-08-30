@@ -22,7 +22,8 @@ function getAllPlanetsInfo(page) {
 
 function getChars2() {
   axios.get(BASE + `films/2/`).then((res) => {
-    res.data.characters.forEach((data, ind) => {
+    res.data.characters.map(url => url.replace('http://', '//')) // remove protocol
+    .forEach((data, ind) => {
       axios.get(data).then((character) => {
         const singlePeople = { ...character.data };
         characters.push(singlePeople);
