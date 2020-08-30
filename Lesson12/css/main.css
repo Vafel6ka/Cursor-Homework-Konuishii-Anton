@@ -44,7 +44,7 @@ body {
 
 #prev, #next, #char, #planets {
 	margin: 5px auto;
-	margin-top: 2%
+	margin-top: 2%;
     background-color: #bcb8b8;
     border: 2px solid gold;
     border-radius: 10px;
