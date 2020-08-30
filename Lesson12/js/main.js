@@ -1,4 +1,4 @@
-const BASE = '//swapi.dev/api/';
+const BASE = 'https://swapi.dev/api/';
 const characters = [];
 const peoples = [];
 const planets = [];
