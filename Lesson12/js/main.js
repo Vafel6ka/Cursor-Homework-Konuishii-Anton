@@ -21,7 +21,7 @@ function getAllPlanetsInfo(page) {
 }
 
 function getChars2() {
-  axios.get(BASE + 'films/2/').then((res) => {
+  axios.get(BASE + 'films/2').then((res) => {
     res.data.characters.forEach((data, ind) => {
       axios.get(data).then((character) => {
         const singlePeople = { ...character.data };
