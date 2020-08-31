@@ -85,7 +85,7 @@ function paginationInit() {
   });
   document.querySelector('#next').addEventListener('click', () => {
     getAllPlanetsInfo(currentPage++);
-    if (currentPage > 6) currentPage = 1;
+    if (currentPage > 6) currentPage = 6;
   });
 }
 
