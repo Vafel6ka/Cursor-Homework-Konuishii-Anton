@@ -1,0 +1,12 @@
+.btn {
+  border: 2px solid grey;
+  border-radius: 10px;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.text{
+  font-size: 12px;
+}

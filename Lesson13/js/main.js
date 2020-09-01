@@ -35,26 +35,26 @@ const generator = gen();
 const changer = changeFontSize();
 
 function showId (){
-const el = document.querySelector('.idd');
+const el = document.querySelector('.id');
 el.innerHTML = `
       <p>Id : ${getId()}</p>`
       }
       
 function fontUp (){
   click = true
-  const text = document.querySelector(".test");
+  const text = document.querySelector(".text");
   
   text.style.fontSize = `${changer.next().value}px`
   text.innerHTML = `
-        <p>texttext</p>`
+        <p>Sauropod</p>`
   }
   
   function fontDown (){
     click=false;
-  const text = document.querySelector(".test");
+  const text = document.querySelector(".text");
   text.style.fontSize = `${changer.next().value}px`
   text.innerHTML = `
-        <p>texttext</p>`
+        <p>Sauropod</p>`
   }
   
   
