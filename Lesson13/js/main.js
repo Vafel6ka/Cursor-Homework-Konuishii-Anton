@@ -1,5 +1,7 @@
 const id=[];
 let count = 0;
+let fontSize = 12;
+let click = true;
 
 function* gen () {
   let i = 0;
@@ -9,11 +11,13 @@ function* gen () {
   }
 }
 
-function* changeFont () {
+function* changeFontSize() {
   while (true) {
-    yield 12
-    yield 14
-    yield 16
+    if (click === true) {
+      yield(fontSize += 2);
+    } else {
+      yield(fontSize -= 2);
+    }
   }
 }
 
@@ -23,12 +27,12 @@ function getId (){
   return id[count-1];
 }
 
-function showAllId() {
-  console.log(id)
-}
+//function showAllId() {
+// console.log(id)
+//}
 
 const generator = gen();
-const changer = changeFont();
+const changer = changeFontSize();
 
 function showId (){
 const el = document.querySelector('.idd');
@@ -37,9 +41,18 @@ el.innerHTML = `
       }
       
 function fontUp (){
+  click = true
+  const text = document.querySelector(".test");
+  
+  text.style.fontSize = `${changer.next().value}px`
+  text.innerHTML = `
+        <p>texttext</p>`
+  }
+  
+  function fontDown (){
+    click=false;
   const text = document.querySelector(".test");
   text.style.fontSize = `${changer.next().value}px`
-  text.innerHTML = ``;
   text.innerHTML = `
         <p>texttext</p>`
   }
