@@ -10,7 +10,6 @@ function* gen () {
 }
 
 function* changeFont () {
-  yield 12
   while (true) {
     yield 12
     yield 14
@@ -38,9 +37,8 @@ el.innerHTML = `
       }
       
 function fontUp (){
-  changer.next().value;
   const text = document.querySelector(".test");
-  text.style.fontSize = changer.next().value
+  text.style.fontSize = `${changer.next().value}px`
   text.innerHTML = ``;
   text.innerHTML = `
         <p>texttext</p>`
