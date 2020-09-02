@@ -59,24 +59,28 @@ function fontUp (){
 	btns.forEach((btn) => {
 	  btn.addEventListener('touchstart', function() {
 	    btn.style.backgroundColor = "grey";
+	    btn.style.borderColor = "black";
 	  });
 	});
 	
 	btns.forEach((btn) => {
-	  btn.addEventListener('touchstart', function() {
+	  btn.addEventListener('touchend', function() {
 	    btn.style.backgroundColor = "gold";
+	    btn.style.borderColor = "grey";
 	  });
 	});
 	
 		btns.forEach((btn) => {
 	  btn.addEventListener('mousedown', function() {
 	    btn.style.backgroundColor = "grey";
+	    btn.style.borderColor = "black";
 	  });
 	});
 	
 	btns.forEach((btn) => {
 	  btn.addEventListener('mouseup', function() {
 	    btn.style.backgroundColor = "gold";
+	    btn.style.borderColor = "grey";
 	  });
 	});
 	
