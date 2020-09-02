@@ -2,6 +2,8 @@ const id=[];
 let count = 0;
 let fontSize = 12;
 let click = true;
+const text = document.querySelector(".text");
+const btns = document.querySelectorAll(".btn");
 
 function* gen () {
   let i = 0;
@@ -42,8 +44,6 @@ el.innerHTML = `
       
 function fontUp (){
   click = true
-  const text = document.querySelector(".text");
-  
   text.style.fontSize = `${changer.next().value}px`
   text.innerHTML = `
         <p>Sauropod</p>`
@@ -51,11 +51,32 @@ function fontUp (){
   
   function fontDown (){
     click=false;
-  const text = document.querySelector(".text");
   text.style.fontSize = `${changer.next().value}px`
   text.innerHTML = `
         <p>Sauropod</p>`
   }
-  
-  
-  
+	
+	btns.forEach((btn) => {
+	  btn.addEventListener('touchstart', function() {
+	    btn.style.backgroundColor = "grey";
+	  });
+	});
+	
+	btns.forEach((btn) => {
+	  btn.addEventListener('touchstart', function() {
+	    btn.style.backgroundColor = "gold";
+	  });
+	});
+	
+		btns.forEach((btn) => {
+	  btn.addEventListener('mousedown', function() {
+	    btn.style.backgroundColor = "grey";
+	  });
+	});
+	
+	btns.forEach((btn) => {
+	  btn.addEventListener('mouseup', function() {
+	    btn.style.backgroundColor = "gold";
+	  });
+	});
+	
